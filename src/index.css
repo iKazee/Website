@@ -1,0 +1,105 @@
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+  font-family: Arial, Helvetica, sans-serif;
+  color: #ffffff; /* On met tout en blanc par défaut */
+}
+
+body {
+ /* overflow: hidden;  <-- SUPPRIME OU COMMENTE CETTE LIGNE */
+  background-color: #000; /* Fond noir au cas où l'image tarde à charger */
+  overflow-y: auto;    /* Autorise le scroll vertical */
+  background-color: #000;
+}
+
+.hero-container {
+  height: 94vh;
+  background-size: cover;
+  background-position: center;
+  position: relative;
+}
+
+/* ================= NAVBAR ================= */
+
+.navbar {
+  width: 100%;
+  padding: 40px 60px; /* Un peu plus d'espace en haut */
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  position: absolute;
+  top: 0;
+  z-index: 10;
+}
+
+.logo {
+  font-size: 28px;
+  font-weight: 300;
+  letter-spacing: 5px; /* Plus d'espace entre les lettres pour le style A U R A */
+  text-transform: uppercase;
+}
+
+.nav-links {
+  display: flex;
+  gap: 65px;
+  list-style: none;
+  font-size: 23px;
+  text-transform: lowercase;
+}
+
+.nav-links li {
+  cursor: pointer;
+  transition: 0.3s ease;
+  opacity: 0.9;
+}
+
+.nav-links li:hover {
+  color: #9eff00; /* Ton vert néon */
+  opacity: 1;
+}
+
+/* ================= VERTICAL TEXT ================= */
+
+.left-text {
+  position: absolute;
+  left: 40px;
+  top: 88%;
+  transform: translateY(-50%) rotate(-90deg);
+  transform-origin: left top; /* Correction de l'origine */
+  font-size: 30px;
+  letter-spacing: 4px;
+  text-transform: uppercase;
+  white-space: nowrap;
+}
+
+.right-text {
+  position: absolute;
+  right: 40px;
+  top: 88%;
+  transform: translateY(-50%) rotate(90deg);
+  transform-origin: right top; /* Correction de l'origine */
+  font-size: 30px; /* Réduit la taille pour que ça ne déborde plus */
+  letter-spacing: 4px;
+  text-transform: uppercase;
+  white-space: nowrap;
+}
+
+/* ================= FOOTER ================= */
+
+.copyright {
+  position: absolute;
+  bottom: 20px;
+  right: 40px;
+  font-size: 12px;
+  opacity: 0.6;
+}
+
+.section-deux {
+  height: 100vh; /* Donne une hauteur de 100% de l'écran à la 2ème section */
+  background-color: #000;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  color: white;
+}
