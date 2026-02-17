@@ -1,26 +1,63 @@
+/* ================= CONFIGURATION GLOBALE ================= */
 * {
   margin: 0;
   padding: 0;
   box-sizing: border-box;
   font-family: Arial, Helvetica, sans-serif;
-  color: #ffffff; /* On met tout en blanc par défaut */
+  color: #ffffff;
+}
+
+html {
+  scroll-behavior: smooth;
+  scroll-snap-type: y mandatory;
 }
 
 body {
- /* overflow: hidden;  <-- SUPPRIME OU COMMENTE CETTE LIGNE */
-  background-color: #000; /* Fond noir au cas où l'image tarde à charger */
-  overflow-y: auto;    /* Autorise le scroll vertical */
   background-color: #000;
+  overflow-x: hidden;
 }
 
-.hero-container {
-  height: 94vh;
-  background-size: cover;
-  background-position: center;
+section {
+  scroll-snap-align: start;
+  height: 100vh;
+  width: 100%;
   position: relative;
 }
 
-/* ================= NAVBAR ================= */
+
+
+/* ================= SECTION HERO ================= */
+.hero-container {
+  height: 92vh;
+
+  background-size: cover;
+
+  background-position: center;
+
+  position: relative;
+}
+
+.left-text, .right-text {
+  position: absolute;
+  top: 85%;
+  font-size: 28px;
+  letter-spacing: 4px;
+  text-transform: uppercase;
+  white-space: nowrap;
+  opacity: 0.8;
+}
+
+.left-text {
+  left: 40px;
+  transform: translateY(-50%) rotate(-90deg);
+  transform-origin: left top;
+}
+
+.right-text {
+  right: 40px;
+  transform: translateY(-50%) rotate(90deg);
+  transform-origin: right top;
+}
 
 .navbar {
   width: 100%;
@@ -34,9 +71,14 @@ body {
 }
 
 .logo {
-  font-size: 28px;
+   font-size: 28px;
+
   font-weight: 300;
+
+  font-family: 'Philosopher', sans-serif;
+
   letter-spacing: 5px; /* Plus d'espace entre les lettres pour le style A U R A */
+
   text-transform: uppercase;
 }
 
@@ -59,34 +101,6 @@ body {
   opacity: 1;
 }
 
-/* ================= VERTICAL TEXT ================= */
-
-.left-text {
-  position: absolute;
-  left: 40px;
-  top: 88%;
-  transform: translateY(-50%) rotate(-90deg);
-  transform-origin: left top; /* Correction de l'origine */
-  font-size: 30px;
-  letter-spacing: 4px;
-  text-transform: uppercase;
-  white-space: nowrap;
-}
-
-.right-text {
-  position: absolute;
-  right: 40px;
-  top: 88%;
-  transform: translateY(-50%) rotate(90deg);
-  transform-origin: right top; /* Correction de l'origine */
-  font-size: 30px; /* Réduit la taille pour que ça ne déborde plus */
-  letter-spacing: 4px;
-  text-transform: uppercase;
-  white-space: nowrap;
-}
-
-/* ================= FOOTER ================= */
-
 .copyright {
   position: absolute;
   bottom: 20px;
@@ -95,11 +109,162 @@ body {
   opacity: 0.6;
 }
 
-.section-deux {
-  height: 100vh; /* Donne une hauteur de 100% de l'écran à la 2ème section */
-  background-color: #000;
+/* ================= SECTION PRODUIT (SLIDE 2) ================= */
+.second-slide {
+  background: #000;
   display: flex;
   justify-content: center;
   align-items: center;
-  color: white;
+  overflow: hidden;
 }
+
+/* Mur de texte "NEW" */
+.bg-watermark-container {
+  position: absolute;
+  inset: 0;
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: center;
+  align-content: center;
+  gap: 20px 50px;
+  z-index: 1;
+  pointer-events: none;
+}
+
+.bg-watermark-container span {
+  font-family: 'Archivo Black', sans-serif;
+  font-size: 160px;
+  font-weight: 900;
+  line-height: 0.8;
+  color: rgba(255, 255, 255, 0.03);
+}
+
+/* Layout Flexbox pour aligner Texte à gauche et Produit à droite */
+.content-wrapper {
+  position: relative;
+  z-index: 10;
+  width: 100%;
+  max-width: 1400px;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  padding: 0 8%;
+}
+
+/* TEXTES TECHNIQUES */
+.text-section {
+  flex: 1;
+  max-width: 600px;
+}
+
+.product-title {
+  font-size: 64px;
+  color: #9eff00;
+  letter-spacing: 8px;
+  margin-bottom: 5px;
+}
+
+.subtitle {
+  font-size: 18px;
+  margin-bottom: 40px;
+  opacity: 0.7;
+}
+
+.specs-container, .status-container {
+  font-family: 'Courier New', Courier, monospace; /* Look industriel */
+  font-size: 16px;
+  line-height: 1.8;
+  margin-bottom: 30px;
+}
+
+.highlight {
+  color: #9eff00;
+}
+
+.roman-year {
+  margin-top: 20px;
+  font-size: 20px;
+  letter-spacing: 15px;
+  display: block;
+}
+
+/* CARTE PRODUIT */
+.product-section {
+  flex: 1;
+  display: flex;
+  justify-content: flex-end;
+}
+
+.product-card {
+  width: 300px;
+  height: 400px;
+  background: #1a1a1a;
+  padding: 12px;
+  border-radius: 20px;
+  box-shadow: 15px 15px 40px #000, -5px -5px 20px #222;
+  transition: transform 0.3s ease;
+}
+
+.product-card:hover {
+  transform: translateY(-5px);
+}
+
+.product-image-area {
+  width: 100%;
+  height: 100%;
+  background-size: cover;
+  background-position: center;
+  border-radius: 15px;
+  position: relative;
+  transition: background-image 0.4s ease-in-out;
+  
+}
+
+/* BOUTON EXPLORE DANS LA CARTE */
+/* From Uiverse.io by gharsh11032000 */ 
+/* === removing default button style ===*/
+.button {
+  margin: 0;
+  height: auto;
+  background: transparent;
+  padding: 0;
+  border: none;
+  cursor: pointer;
+}
+
+/* button styling */
+.button {
+  --border-right: 6px;
+  --text-stroke-color: rgba(255,255,255,0.6);
+  --animation-color: #9ffd00;
+  --fs-size: 2em;
+  letter-spacing: 3px;
+  text-decoration: none;
+  font-size: var(--fs-size);
+  font-family: "Arial";
+  position: relative;
+  left: 10.5cm;
+  top: 6.3cm;
+  text-transform: uppercase;
+  color: transparent;
+  -webkit-text-stroke: 1px var(--text-stroke-color);
+}
+/* this is the text, when you hover on button */
+.hover-text {
+  position: absolute;
+  box-sizing: border-box;
+  content: attr(data-text);
+  color: var(--animation-color);
+  width: 0%;
+  inset: 0;
+  border-right: var(--border-right) solid var(--animation-color);
+  overflow: hidden;
+  transition: 0.5s;
+  -webkit-text-stroke: 1px var(--animation-color);
+}
+/* hover */
+.button:hover .hover-text {
+  width: 100%;
+  filter: drop-shadow(0 0 23px var(--animation-color))
+}
+
