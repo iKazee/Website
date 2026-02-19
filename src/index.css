@@ -59,35 +59,55 @@ section {
   transform-origin: right top;
 }
 
+/* UPDATED NAVBAR */
 .navbar {
   width: 100%;
-  padding: 40px 60px; /* Un peu plus d'espace en haut */
+  padding: 30px 60px;
   display: flex;
   justify-content: space-between;
   align-items: center;
-  position: absolute;
+  
+  /* Change from absolute to fixed so it stays with the user */
+  position: fixed; 
   top: 0;
-  z-index: 10;
+  left: 0;
+  z-index: 1000; /* Increased to ensure it stays above all content */
+  
+  /* Initial State */
+  background-color: transparent;
+  transition: background-color 0.3s ease, padding 0.3s ease;
 }
 
+/* Add this class for when the user scrolls (triggered by the React logic) */
+.navbar.scrolled {
+  background-color: rgba(0, 0, 0, 0.7); /* Slight transparency */
+  backdrop-filter: blur(10px); /* This adds the glass effect */
+  padding: 20px 60px;/* Optional: shrinks slightly for a sleek effect */
+}
+
+/* YOUR ORIGINAL LOGO - UNCHANGED */
 .logo {
-   font-size: 28px;
-
+  font-size: 28px;
   font-weight: 300;
-
   font-family: 'Philosopher', sans-serif;
-
-  letter-spacing: 5px; /* Plus d'espace entre les lettres pour le style A U R A */
-
+  letter-spacing: 5px;
   text-transform: uppercase;
+  position: relative;
+  right: 18px;
 }
 
+@import url('https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500&display=swap');
+
+/* YOUR ORIGINAL NAV-LINKS - UNCHANGED */
 .nav-links {
   display: flex;
-  gap: 65px;
+  gap: 55px;
   list-style: none;
-  font-size: 23px;
-  text-transform: lowercase;
+  font-size: 20px;
+  opacity: 0.7;
+  position: relative;
+  right: 257px;
+  font-family:'Inter', sans-serif;
 }
 
 .nav-links li {
@@ -99,6 +119,35 @@ section {
 .nav-links li:hover {
   color: #9eff00; /* Ton vert néon */
   opacity: 1;
+}
+
+.cart-img {
+  width: 22px;
+  height: 22px;
+  position: relative;
+  left: 7.2cm;
+  /* Ce filtre transforme le noir en blanc pur */
+  filter: brightness(0) invert(1); 
+  
+  /* Si tu veux qu'elle devienne ton vert néon au survol : */
+  transition: filter 0.3s ease;
+}
+
+.cart-button:hover .cart-img {
+  /* Ce filtre transforme le blanc en ton vert néon #9eff00 environ */
+  filter: invert(86%) sepia(86%) saturate(614%) hue-rotate(34deg) brightness(108%) contrast(106%);
+}
+
+
+.cart-button {
+  background: none;
+  border: none;
+  cursor: pointer;
+  position: relative;
+  padding: 0;
+  display: flex;
+  align-items: center;
+  
 }
 
 .copyright {
@@ -155,6 +204,7 @@ section {
 .text-section {
   flex: 1;
   max-width: 600px;
+  transform: translateY(30px);
 }
 
 .product-title {
@@ -193,6 +243,7 @@ section {
   flex: 1;
   display: flex;
   justify-content: flex-end;
+  transform: translateX(-100px);
 }
 
 .product-card {
@@ -243,8 +294,8 @@ section {
   font-size: var(--fs-size);
   font-family: "Arial";
   position: relative;
-  left: 10.5cm;
-  top: 6.3cm;
+  left: 7.7cm;
+  top: 6.5cm;
   text-transform: uppercase;
   color: transparent;
   -webkit-text-stroke: 1px var(--text-stroke-color);

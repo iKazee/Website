@@ -3,6 +3,7 @@ import Navbar from "../components/Navbar";
 import heroImage from "../assets/hero.gif";
 import sweet from "../assets/aura_Sweet.jpeg";
 import sweetback from "../assets/hoodie_aura_back.jpeg";
+import { Link } from "react-router-dom";
 
 const Home = () => {
   const [currentImage, setCurrentImage] = useState(sweet);
@@ -52,12 +53,12 @@ const Home = () => {
               <p className="roman-year">M M X X V I</p>
             </div>
           </div>
-
+          <Link to="/Explore">
           <button class="button" data-text="Awesome">
     <span class="actual-text">&nbsp;EXPLORE&nbsp;</span>
     <span aria-hidden="true" class="hover-text">&nbsp;EXPLORE&nbsp;</span>
 </button>
-
+          </Link>
           {/* Bloc de droite : Carte Produit */}
           <div className="product-section">
             <div className="product-card">

@@ -1,0 +1,15 @@
+.Truc{
+    position: absolute;
+    right: 20cm;
+     top: 13cm; 
+     /* commente section with ctrl + ( /  or : ) */
+     /* i need to finish here */
+
+}
+
+.pass-com{
+position: inherit;
+display: flex;
+padding: 2%;
+left: auto ;
+}
